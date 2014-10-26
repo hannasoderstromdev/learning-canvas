@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Dynamic Centering</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		//https://www.youtube.com/watch?v=oO8DI15JbkQ
+
+		window.onload = draw;
+
+		function draw(){
+
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillStyle = "magenta";
+
+			var rectW = 100;
+			var rectH = 100;
+			var rectX = (ctx.canvas.width / 2) - (rectW * .5);
+			var rectY = (ctx.canvas.height / 2) - (rectH * .5);
+
+			ctx.fillRect(rectX,rectY,rectW,rectH);
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Dynamic Centering</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+</body>
+</html>

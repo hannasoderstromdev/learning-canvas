@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Transformations</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=-8bTsCH2SGs
+		window.onload = draw;
+
+		function draw(){
+
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+
+			ctx.fillRect(200,100,100,100);
+			// ctx.scale(.5, .5); 	scale canvas
+			// ctx.rotate(angle);
+			// ctx.translate(20, -20); adds values to position
+			// ctx.transform(xScale, ySkew, xScew, yScale, xTrans, yTrans);
+			// ctx.setTansform(xScale, ySkew, xScew, yScale, xTrans, yTrans); resets instead of adding
+
+			ctx.transform(1, 0, .5, 1, 0, 0);
+			ctx.fillRect(310,100,100,100);
+
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Transformations</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+</body>
+</html>

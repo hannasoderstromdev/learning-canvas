@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Particles</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=8dfyqUlLcZw
+
+		var bg = new Image();
+		bg.src = "images/bg-winter.jpg";
+
+		function initCanvas(){
+
+			var ctx = document.getElementById('canvas1').getContext('2d');
+
+			var cW = ctx.canvas.width,
+				cH = ctx.canvas.height;
+
+			function animate(){
+				ctx.save();
+				ctx.clearRect(0,0,cW,cH);
+				ctx.drawImage(bg, 0, 0);
+				ctx.rotate(-.4);
+				snow();
+				ctx.restore();
+			}
+
+			var animateInterval = setInterval(animate, 30);
+		}
+
+		window.addEventListener('load', function(event) {
+			initCanvas();
+		});
+
+	</script>
+</head>
+<body>
+
+	<h1>HTML5: Canvas &amp; JavaScript - Particles</h1>
+
+	<canvas id="canvas1" width="600" height="400"></canvas>
+	<p id="status"></p>
+
+</body>
+</html>

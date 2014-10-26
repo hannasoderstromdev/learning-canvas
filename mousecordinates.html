@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Mouse Cordinates</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=8pNzjUjvNsY
+
+		function initCanvas(){
+
+			var ctx = document.getElementById('canvas1').getContext('2d');
+
+			var cW = ctx.canvas.width,
+				cH = ctx.canvas.height;
+
+			ctx.canvas.addEventListener('mousemove', function(event){
+
+				var mouseX = event.clientX - ctx.canvas.offsetLeft;
+				var mouseY = event.clientY - ctx.canvas.offsetTop;
+				var status = document.getElementById('status');
+
+				status.innerHTML = mouseX + " | " + mouseY;
+			});
+
+			ctx.canvas.addEventListener('click', function(event) {
+
+				var mouseX = event.clientX - ctx.canvas.offsetLeft;
+				var mouseY = event.clientY - ctx.canvas.offsetTop;
+
+				ctx.fillStyle = "orange";
+				ctx.fillRect(mouseX-15, mouseY-15, 30, 30);
+			});
+
+		}
+
+		window.addEventListener('load', function(event) {
+			initCanvas();
+		});
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Mouse Cordinates</h1>
+	<canvas id="canvas1" width="600" height="400">
+	</canvas>
+	<p id="status">0 | 0</p>
+</body>
+</html>

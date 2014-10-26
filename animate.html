@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Animate</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=hUCT4b4wa-8
+
+		function draw(x,y){
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+			ctx.save();							// Save canvas state
+			ctx.clearRect(0,0,600,400); 		// Clean canvas
+			ctx.fillStyle = "rgba(0,200,0,1)";
+			ctx.fillRect(x, 20, 50, 50);
+			ctx.restore();						// Restore state
+			x += 3;
+
+			var loopTimer = setTimeout('draw('+x+', '+y+')', 30);
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Animate</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+	<button onclick="draw(0,0);">Draw</button>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - JSON Ojects</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		//
+
+		function initCanvas(){
+
+			var ctx = document.getElementById('canvas1').getContext('2d');
+
+			var buildings = [
+								{"id":"house", "x": 100, "y": 100, "w": 50, "h": 50, "bg":"magenta"},
+								{"id":"grocery", "x": 200, "y": 100, "w": 50, "h": 50, "bg":"green"},
+								{"id":"post_office", "x": 300, "y": 100, "w": 50, "h": 50, "bg":"orange"}
+							];
+
+			for(var i = 0; i < buildings.length; i++){
+				var bld = buildings[i];
+				ctx.fillStyle = bld.bg;
+				ctx.fillRect(bld.x, bld.y, bld.w, bld.h);
+			}
+
+		}
+
+		window.addEventListener('load', function(event) {
+			initCanvas();
+		});
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - JSON Ojects</h1>
+
+	<canvas id="canvas1" width="1000" height="500">
+	</canvas>
+
+</body>
+</html>

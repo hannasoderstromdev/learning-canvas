@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Text</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=kcZ8tEeJ9h4
+		window.onload = draw;
+
+		function draw(){
+
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+			// fillText(text, x, y, maxWidth);
+			// strokeText(text, x, y, maxWidth);
+
+			ctx.textAlign = 'center'; // start, end, left, right, center
+			ctx.textBaseline = 'alphabetic'; // top, middle, bottom, hanging, alphabetic, ideographic
+			ctx.font = "normal 400 56px Arial, sans-serif";
+			ctx.fillText("Text on Canvas", 300, 50);
+			ctx.strokeText("Text on Canvas", 300, 100);
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Text</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+</body>
+</html>

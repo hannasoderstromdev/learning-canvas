@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Line Styles</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=NWRduL9gE1o
+		window.onload = draw;
+
+		function draw(){
+
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+
+			ctx.lineWidth = 10;
+			ctx.lineCap = "round"; // butt, round, square
+			ctx.lineJoin = "bevel"; // bevel, round, miter
+			ctx.miterLimit = 5;
+			ctx.setLineDash([0, 5, 20]);
+			ctx.lineDashOffset = 5;
+
+			ctx.beginPath();
+			ctx.moveTo(150,150);
+			ctx.lineTo(240,240);
+			ctx.lineTo(300,40);
+			ctx.stroke();
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Line Styles</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+</body>
+</html>

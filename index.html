@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Draw</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		window.onload = draw;
+
+		function draw(){
+
+			// HTML5-object #canvas1 into variable canvas
+			var canvas = document.getElementById("canvas1");
+
+			// Contect Object for Draw Method()
+			var ctx = canvas.getContext("2d");
+
+			// RECTANGLE
+
+			// fillStyle (r, g, b, alpha)
+			// ctx.fillStyle = "rgba(0, 200, 0, 1)";
+
+			// Rectangle: fillRect(X, Y, width, height)
+			// ctx.fillRect(36, 10, 22, 22);
+
+
+			// PATH
+
+			// Path: beginPath(), moveTo(x,y), lineTo(x,y), fill()
+
+			ctx.beginPath();
+			ctx.moveTo(100,50);
+			ctx.lineTo(130,100);
+			ctx.lineTo(70,100);
+			ctx.closePath(); // Close path
+			ctx.stroke();	// Stroke path
+
+			ctx.beginPath();
+			ctx.moveTo(72,60);
+			ctx.lineTo(85,72);
+			ctx.lineTo(71,94);
+			ctx.lineTo(50,70);
+			ctx.lineTo(65,40);
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.moveTo(128,60);
+			ctx.lineTo(115,72);
+			ctx.lineTo(129,94);
+			ctx.lineTo(150,70);
+			ctx.lineTo(135,40);
+			ctx.fill();
+
+		}
+
+
+	</script>
+</head>
+<body>
+
+	<h1>HTML5: Canvas &amp; JavaScript - Draw</h1>
+	<canvas id="canvas1" width="600" height="400"></canvas>
+
+</body>
+</html>

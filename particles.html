@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Particles</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=8dfyqUlLcZw
+
+		var bg = new Image();
+		bg.src = "images/bg-winter.jpg";
+
+		function initCanvas(){
+
+			var ctx = document.getElementById('canvas1').getContext('2d');
+
+			var cW = ctx.canvas.width,
+				cH = ctx.canvas.height;
+
+			var flakes = [];
+
+			function addFlake(){
+				var x = Math.floor(Math.random() * cW-100) + 1,
+					y = 0,
+					s = Math.floor(Math.random() * 4) + 1;
+
+				flakes.push({"x":x, "y":y, "s":s});
+			}
+
+			function snow(){
+				addFlake();
+				for(var i = 0; i < flakes.length; i++){
+					ctx.fillStyle = "rgba(255,255,255,.75)";
+					ctx.beginPath();
+					// arc(x, y, radius, startAngle, endAngle, anticlockwise)
+					ctx.arc(flakes[i].x, flakes[i].y += flakes[i].s * .5, flakes[i].s * .5, 0, Math.PI*2, false);
+					ctx.fill();
+
+					// remove flakes when out of bounds
+					if(flakes[i].y > cH+50){
+						flakes.splice(i, 1);
+					}
+				}
+			}
+
+			function animate(){
+				ctx.save();
+				ctx.clearRect(0,0,cW,cH);
+				ctx.drawImage(bg, 0, 0);
+				ctx.rotate(-.4);
+				snow();
+				ctx.restore();
+			}
+
+			var animateInterval = setInterval(animate, 30);
+		}
+
+		window.addEventListener('load', function(event) {
+			initCanvas();
+		});
+
+	</script>
+</head>
+<body>
+
+	<h1>HTML5: Canvas &amp; JavaScript - Particles</h1>
+
+	<canvas id="canvas1" width="600" height="400"></canvas>
+	<p id="status"></p>
+
+</body>
+</html>

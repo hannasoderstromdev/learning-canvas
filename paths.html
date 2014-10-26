@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HTML5: Canvas &amp; JavaScript - Paths</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+
+		// https://www.youtube.com/watch?v=HUp8yDpfFm4
+		window.onload = draw;
+
+		function draw(){
+
+			var canvas = document.getElementById('canvas1');
+			var ctx = canvas.getContext('2d');
+
+			/* Stroke and Fill of Path
+			ctx.beginPath();
+			ctx.moveTo(50,50);
+			ctx.lineTo(250,50);
+			ctx.lineTo(250,150);
+			ctx.lineTo(50,150);
+
+			ctx.closePath()
+			ctx.stroke();
+			ctx.fill()
+			*/
+
+			/* Clipping
+			ctx.rect(50,50,100,100);
+			ctx.clip();
+			ctx.rect(0,0,100,100);
+			ctx.stroke();
+			*/
+
+			/* Circle
+			ctx.arc(150, 150, 100, 0, Math.PI*2, false);
+			ctx.stroke();
+			*/
+
+			/* Rund Corner
+			ctx.moveTo(50,50);
+			ctx.lineTo(300,50);
+			ctx.arcTo(350, 50, 350, 100, 50);
+			ctx.lineTo(350, 200);
+			ctx.stroke();
+			*/
+
+			/* Corner with Control Point
+			ctx.moveTo(50,50);
+			ctx.lineTo(300,50);
+			ctx.quadraticCurveTo(250, 100, 390, 100)
+			ctx.lineTo(390, 200);
+			ctx.stroke();
+			*/
+
+			// Bezier (two Control Points)
+			ctx.moveTo(50,50);
+			ctx.lineTo(300,50);
+			ctx.bezierCurveTo(280, 90, 300, 100, 390, 100)
+			ctx.lineTo(390, 200);
+			ctx.stroke();
+
+		}
+
+	</script>
+</head>
+<body>
+	<h1>HTML5: Canvas &amp; JavaScript - Paths</h1>
+	<canvas id="canvas1" width="600" height="400">
+
+	</canvas>
+</body>
+</html>
